@@ -61,9 +61,7 @@ def _get_ip(request):
 
 
 def user_or_ip(request):
-    if request.user.is_authenticated:
-        return str(request.user.pk)
-    return _get_ip(request)
+    pass
 
 
 _SIMPLE_KEYS = {
@@ -74,8 +72,7 @@ _SIMPLE_KEYS = {
 
 
 def get_header(request, header):
-    key = 'HTTP_' + header.replace('-', '_').upper()
-    return request.META.get(key, '')
+    pass
 
 
 _ACCESSOR_KEYS = {

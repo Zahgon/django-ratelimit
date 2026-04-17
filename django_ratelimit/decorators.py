@@ -14,18 +14,7 @@ __all__ = ['ratelimit']
 def ratelimit(group=None, key=None, rate=None, method=ALL, block=True):
     def decorator(fn):
         @wraps(fn)
-        def _wrapped(request, *args, **kw):
-            old_limited = getattr(request, 'limited', False)
-            ratelimited = is_ratelimited(request=request, group=group, fn=fn,
-                                         key=key, rate=rate, method=method,
-                                         increment=True)
-            request.limited = ratelimited or old_limited
-            if ratelimited and block:
-                cls = getattr(
-                    settings, 'RATELIMIT_EXCEPTION_CLASS', Ratelimited)
-                raise (import_string(cls) if isinstance(cls, str) else cls)()
-            return fn(request, *args, **kw)
-        return _wrapped
+        pass
     return decorator
 
 

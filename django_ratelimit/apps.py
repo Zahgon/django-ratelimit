@@ -7,4 +7,4 @@ class DjangoRatelimitConfig(AppConfig):
     default = True
 
     def ready(self):
-        from . import checks  # noqa: F401
+        pass

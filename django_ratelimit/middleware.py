@@ -12,7 +12,4 @@ class RatelimitMiddleware:
         return self.get_response(request)
 
     def process_exception(self, request, exception):
-        if not isinstance(exception, Ratelimited):
-            return None
-        view = import_string(settings.RATELIMIT_VIEW)
-        return view(request, exception)
+        pass
